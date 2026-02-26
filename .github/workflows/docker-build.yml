@@ -22,6 +22,7 @@ on:
             - Dockerfile
             - requirements.txt
             - "**.py"
+            - ".github/workflows/docker-build.yml"
     workflow_dispatch:
         inputs:
             tag:
@@ -68,7 +69,7 @@ jobs:
                       type=semver,pattern={{version}}
                       type=semver,pattern={{major}}.{{minor}}
                       type=semver,pattern={{major}}
-                      type=sha,prefix=,suffix=,format=short
+                      type=sha,prefix=sha-,suffix=,format=short
                       type=raw,value=latest,enable={{is_default_branch}}
                       type=raw,value=${{ inputs.tag }},enable=${{ inputs.tag != '' }}
 
