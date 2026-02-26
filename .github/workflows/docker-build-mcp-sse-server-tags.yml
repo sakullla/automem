@@ -12,6 +12,10 @@ on:
     push:
         tags: ["v*"]
 
+concurrency:
+    group: docker-build-mcp-sse-server-tags
+    cancel-in-progress: false
+
 env:
     REGISTRY: ghcr.io
     IMAGE_NAME: ${{ github.repository }}/mcp-sse-server
