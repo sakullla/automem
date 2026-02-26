@@ -24,15 +24,15 @@ on:
             - "mcp-sse-server/**"
             - ".github/workflows/docker-build-mcp-sse-server.yml"
     workflow_dispatch:
-
-concurrency:
-    group: docker-build-mcp-sse-server-${{ github.ref }}
-    cancel-in-progress: true
         inputs:
             tag:
                 description: "Custom tag for the image (optional)"
                 required: false
                 default: ""
+
+concurrency:
+    group: docker-build-mcp-sse-server-${{ github.ref }}
+    cancel-in-progress: true
 
 env:
     REGISTRY: ghcr.io
